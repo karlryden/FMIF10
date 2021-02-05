@@ -11,8 +11,10 @@ for region in regions:
         target = './data/xlsx/' + region + '/' + month + '.xlsx'
         path = './data/csv/' + region + '.csv'
         excel = pd.read_excel(target, 'Data', usecols=[0, 3, 4], dtype=float).fillna(0)
+        print(excel)
         series.append((excel.iloc[:,1] + excel.iloc[:,2]).astype(int))
-    data = pd.concat(series, axis=1).head()
+        print(series)
+    data = pd.concat(series, axis=1)
     labels = ['År']
     for m in months:
         labels.append(m)
